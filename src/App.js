@@ -14,6 +14,7 @@ class App extends Component {
     console.log(arr);
       
     this.props.shuffleMovies(arr);
+
   }
 
   shuffle(arr) {
@@ -27,6 +28,13 @@ class App extends Component {
   renderShuffled(){
 
     let arr = this.props.ShuffledMovies;
+
+    if(arr.length < 1){
+      return(
+        <h6 className="center white-text">No Movies in this list</h6>
+      )
+    }
+
     return arr.map(hero => {
       return(       
           <div className="col s4" key={hero}>
@@ -43,6 +51,12 @@ class App extends Component {
     if(this.props.SelectedMovies){
       
       let arr = this.props.SelectedMovies;
+
+      if(arr.length < 1){
+        return(
+          <h6 className="center white-text">No Movies in this list</h6>
+        )
+      }
 
       return arr.map(hero => {
         return(       
@@ -62,13 +76,21 @@ class App extends Component {
       return (
         <div className="App">
         <div className="row">
-          <div className="shuffle col s6">
+          <div className="shuffle col s12 m12 l6 container">
           <div className="row">
+            <h3 className="center white-text">Shuffled Movies</h3>
+            <br/>
+            <br/>
             {this.renderShuffled()}
             </div>
           </div>
-          <div className="ordered col s6"> 
+          <div className="ordered col s12 m12 l6 container">
+            <div className="row">
+            <h3 className="center white-text">Selected Movies</h3>
+            <br/>
+            <br/>
             {this.renderSelectedMovies()}
+            </div>
           </div>
         </div>
       </div>

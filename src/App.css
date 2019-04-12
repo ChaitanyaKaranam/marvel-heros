@@ -21,6 +21,33 @@
   color: #61dafb;
 }
 
+.shuffle{
+  background-color: #e57373;
+  padding: 20px;
+}
+
+.shuffle>div{
+  padding: 20px;
+}
+
+div>img{
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+img:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2);
+  border: 10px solid white;
+}
+
+.ordered{
+  background-color: #039be5;
+}
+
+.ordered>div{
+  padding: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
