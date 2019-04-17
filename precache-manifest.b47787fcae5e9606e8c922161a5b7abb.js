@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "818b9d6953d523dacf11",
-    "url": "/marvel-heros/static/css/main.93434d07.chunk.css"
+    "revision": "7a38f29f3f5c56d65e3f",
+    "url": "/marvel-heros/static/css/main.177d2817.chunk.css"
   },
   {
-    "revision": "818b9d6953d523dacf11",
-    "url": "/marvel-heros/static/js/main.7e1939fa.chunk.js"
+    "revision": "7a38f29f3f5c56d65e3f",
+    "url": "/marvel-heros/static/js/main.e956c988.chunk.js"
   },
   {
     "revision": "f8cca4a5f3465954a883",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/marvel-heros/static/media/logo.5d5d9eef.svg"
   },
   {
-    "revision": "71a309d54cf701aae8d8e1b9a31b7faf",
+    "revision": "674cd2dce9aaba5a859a29e25a472f11",
     "url": "/marvel-heros/index.html"
   }
 ];
