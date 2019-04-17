@@ -21,9 +21,15 @@
   color: #61dafb;
 }
 
+.row{
+  margin-bottom: 0px;
+}
+
 .shuffle{
   background-color: #e57373;
   padding: 20px;
+  overflow: scroll;
+  height: 100vh;
 }
 
 .shuffle>div{
@@ -42,6 +48,8 @@ img:hover{
 
 .ordered{
   background-color: #039be5;
+  overflow: scroll;
+  height: 100vh;
 }
 
 .ordered>div{

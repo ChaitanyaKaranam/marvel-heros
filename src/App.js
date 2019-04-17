@@ -12,8 +12,12 @@ class App extends Component {
     let arr = this.shuffle(Object.keys(heros));
 
     console.log(arr);
+
+    let newArr = arr.map(val => {
+      return heros[val]
+    });
       
-    this.props.shuffleMovies(arr);
+    this.props.shuffleMovies(newArr);
 
   }
 
@@ -37,8 +41,8 @@ class App extends Component {
 
     return arr.map(hero => {
       return(       
-          <div className="col s4" key={hero}>
-            <img src={heros[hero]['img']} height={300} onClick={() => {
+          <div className="col s4" key={hero.title}>
+            <img src={hero.img} height={300} onClick={() => {
               this.props.selectedMovies(hero);
               this.props.removeShuffledMovie(hero);
             }}/>
@@ -60,8 +64,8 @@ class App extends Component {
 
       return arr.map(hero => {
         return(       
-            <div className="col s4" key={hero}>
-              <img src={heros[hero]['img']} height={300} onClick={() => {
+            <div className="col s4" key={hero.title}>
+              <img src={hero.img} height={300} onClick={() => {
                 this.props.removeSelectedMovie(hero);
                 this.props.addMovie(hero);
               }}/>
