@@ -1,33 +1,13 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import heros from './heros';
 import * as actions from './actions';
 import { connect } from 'react-redux';
 
 class App extends Component {
 
-  componentDidMount(){
-    
-    let arr = this.shuffle(Object.keys(heros));
-
-    console.log(arr);
-
-    let newArr = arr.map(val => {
-      return heros[val]
-    });
-      
-    this.props.shuffleMovies(newArr);
-
+  componentDidMount(){     
+    this.props.shuffleMovies();
   }
-
-  shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
 
   renderShuffled(){
 
@@ -39,12 +19,13 @@ class App extends Component {
       )
     }
 
-    return arr.map(hero => {
+    return arr.map(movie => {
       return(       
-          <div className="col s4" key={hero.title}>
-            <img src={hero.img} height={300} onClick={() => {
-              this.props.selectedMovies(hero);
-              this.props.removeShuffledMovie(hero);
+          <div className="col l4 m4 s12" key={movie.title}>
+            <img src={movie.img} height={300} onClick={() => {
+              this.props.selectedMovies(movie);
+              this.props.removeShuffledMovie(movie);
+              this.props.checkLifes({ index: this.props.SelectedMovies.length, movie});
             }}/>
           </div>        
       )
@@ -52,6 +33,12 @@ class App extends Component {
   }
 
   renderSelectedMovies(){
+
+    if(this.props.Lifes === 0){
+      this.props.shuffleMovies();
+      this.props.resetSelection();
+    }
+
     if(this.props.SelectedMovies){
       
       let arr = this.props.SelectedMovies;
@@ -62,12 +49,12 @@ class App extends Component {
         )
       }
 
-      return arr.map(hero => {
+      return arr.map(movie => {
         return(       
-            <div className="col s4" key={hero.title}>
-              <img src={hero.img} height={300} onClick={() => {
-                this.props.removeSelectedMovie(hero);
-                this.props.addMovie(hero);
+            <div className="col l4 m4 s12" key={movie.title}>
+              <img src={movie.img} height={300} onClick={() => {
+                this.props.removeSelectedMovie(movie);
+                this.props.addMovie(movie);
               }}/>
             </div>        
         )
@@ -107,9 +94,9 @@ class App extends Component {
   }
 }
 
-function mapStateToProps({ ShuffledMovies, SelectedMovies }){
+function mapStateToProps({ ShuffledMovies, SelectedMovies, Lifes }){
   return{
-    ShuffledMovies, SelectedMovies
+    ShuffledMovies, SelectedMovies, Lifes
   }
 }
 

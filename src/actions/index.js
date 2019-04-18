@@ -4,11 +4,12 @@ export const SELECTED_MOVIES = 'SELECTED_MOVIES';
 export const REMOVE_SHUFFLED_MOVIE = 'REMOVE_SHUFFLED_MOVIE';
 export const REMOVE_SELECTED_MOVIE = 'REMOVE_SELECTED_MOVIE';
 export const ADD_MOVIE = 'ADD_MOVIE';
+export const LIFES = 'LIFES';
+export const RESET_SELECTION = 'RESET_SELECTION';
 
-export const shuffleMovies = (arr) => {
+export const shuffleMovies = () => {
     return {
-        type: SHUFFLE_MOVIES,
-        payload: arr
+        type: SHUFFLE_MOVIES
     }
 }
 
@@ -37,5 +38,18 @@ export const addMovie = (payload) => {
     return{
         type: ADD_MOVIE,
         payload
+    }
+}
+
+export const checkLifes = (payload) => {
+    return{
+        type: LIFES,
+        payload
+    }
+}
+
+export const resetSelection = () => {
+    return{
+        type: RESET_SELECTION
     }
 }
