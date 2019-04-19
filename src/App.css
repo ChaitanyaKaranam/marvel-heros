@@ -1,34 +1,15 @@
 
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 .row{
   margin-bottom: 0px;
 }
 
 .shuffle{
-  background-color: #e57373;
+  background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   padding: 20px;
-  overflow: scroll;
+  overflow-y: scroll;
   height: 100vh;
 }
 
@@ -47,8 +28,11 @@ img:hover{
 }
 
 .ordered{
-  background-color: #039be5;
-  overflow: scroll;
+  background: #0F2027;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  overflow-y: scroll;
   height: 100vh;
 }
 
@@ -56,11 +40,54 @@ img:hover{
   padding: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.infinity{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.infinity > span{
+  padding: 0px 1rem 0px 1rem;
+}
+
+.space{
+  color: #101D90;
+  animation: glow 1s infinite alternate;
+}
+
+.mind{
+  color:  #EDC005;
+  animation: glow 1.5s infinite alternate;
+}
+
+.reality{
+  color: #83000E;
+  animation: glow 2s infinite alternate;
+}
+
+.power{
+  color: #DD70FD;
+  animation: glow 1s infinite alternate;
+}
+
+.time{
+  color: #07A244;
+  animation: glow 1.5s infinite alternate;
+}
+
+.soul{
+  color: #CC5D18;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow{
+  0%{
+    opacity: 0.5;
   }
-  to {
-    transform: rotate(360deg);
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0.5;
   }
 }

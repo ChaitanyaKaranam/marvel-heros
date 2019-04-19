@@ -2,11 +2,40 @@ import React, { Component } from 'react';
 import './App.css';
 import * as actions from './actions';
 import { connect } from 'react-redux';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class App extends Component {
 
   componentDidMount(){     
     this.props.shuffleMovies();
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    console.log(this.props.Lifes);
+    if(this.props.Lifes !== prevProps.Lifes && (this.props.Lifes !== 0)){
+      toast(this.getInfinityStones(this.props.Lifes));
+    }
+  }
+
+  getInfinityStones(lifes){
+    let stones = {
+      0: "space",
+      1: "mind",
+      2: "reality",
+      3: "power",
+      4: "time",
+      5: "soul"
+    }
+  
+    return (
+      <div className="infinity">
+        {
+          Array.from({length: lifes}, (v,i) => <span title={stones[i]} key={stones[i]} className={`stones ${stones[i]}`}><i className="fas fa-gem"></i></span> )
+        }
+      </div>
+    )
+  
   }
 
   renderShuffled(){
@@ -22,7 +51,7 @@ class App extends Component {
     return arr.map(movie => {
       return(       
           <div className="col l4 m4 s12" key={movie.title}>
-            <img src={movie.img} height={300} onClick={() => {
+            <img src={movie.img} alt={movie.title} height={300} onClick={() => {
               this.props.selectedMovies(movie);
               this.props.removeShuffledMovie(movie);
               this.props.checkLifes({ index: this.props.SelectedMovies.length, movie});
@@ -52,7 +81,7 @@ class App extends Component {
       return arr.map(movie => {
         return(       
             <div className="col l4 m4 s12" key={movie.title}>
-              <img src={movie.img} height={300} onClick={() => {
+              <img alt={movie.title} src={movie.img} height={300} onClick={() => {
                 this.props.removeSelectedMovie(movie);
                 this.props.addMovie(movie);
               }}/>
@@ -84,6 +113,17 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+        />
       </div>
       );
     }else{
