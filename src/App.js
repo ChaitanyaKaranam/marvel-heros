@@ -12,7 +12,6 @@ class App extends Component {
   }
 
   componentDidUpdate(prevProps, prevState){
-    console.log(this.props.Lifes);
     if(this.props.Lifes !== prevProps.Lifes && (this.props.Lifes !== 0)){
       toast(this.getInfinityStones(this.props.Lifes));
     }
