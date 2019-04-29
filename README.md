@@ -8,7 +8,7 @@ https://chaitanyakaranam.github.io/marvel-heros/
 
 # Introduction
 
-This application aims to introduce the basics of Redux concepts - Time Travel Debugging
+This application aims to introduce debugging technique - Time Travel Debugging
 
 You need to guess the order in which movies were released in Marvel cinematic universe.
 
