@@ -2,7 +2,6 @@
   "name": "marvel-heros",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://chaitanyakaranam.github.io/marvel-heros",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "react": "^16.8.6",
